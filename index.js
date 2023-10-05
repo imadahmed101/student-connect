@@ -9,7 +9,8 @@ const studentRoute = require('./routes/student')
 const postRoute = require('./routes/post')
 const commentRoute = require('./routes/comment')
 
-const PORT = process.env.PORT
+const PORT = 80
+// const PORT = process.env.PORT
 const DBCONNECTION = process.env.DBCONNECTION
 
 app.use(cors())
