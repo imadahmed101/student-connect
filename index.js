@@ -9,7 +9,7 @@ const studentRoute = require('./routes/student')
 const postRoute = require('./routes/post')
 const commentRoute = require('./routes/comment')
 
-const PORT = 80
+const PORT = process.env.PORT || 80
 // const PORT = process.env.PORT
 const DBCONNECTION = process.env.DBCONNECTION
 
