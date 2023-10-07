@@ -3,9 +3,7 @@ import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import {Context} from '../App'
 
-// const baseURL = 'https://studentconnect.azurewebsites.net:5000/login'
-const baseURL = 'https://studentconnect.azurewebsites.net:80/login'
-// const baseURL = 'http://localhost:5000/login'
+const baseURL = 'https://studentconnect.azurewebsites.net/login'
 
 const Login = () => {
   const [username, setUsername] = useState('')
@@ -43,6 +41,10 @@ const Login = () => {
       setUserName(response.data.username)
       alert('Successfully logged in')
       navigate('/landing')
+
+      // console.log(response.data)
+
+
     })
     .catch((error) => {
       // console.log(error)

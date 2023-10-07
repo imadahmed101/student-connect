@@ -4,6 +4,7 @@ app.use(express.json())
 const env = require('dotenv/config')
 const mongoose = require('mongoose')
 const cors = require('cors')
+const path = require('path')
 
 const studentRoute = require('./routes/student')
 const postRoute = require('./routes/post')
@@ -16,6 +17,11 @@ app.use(cors())
 app.use('/', (studentRoute))
 app.use('/post', (postRoute))
 app.use('/comment', (commentRoute))
+
+app.use(express.static("./client/build"))
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+})
 
 mongoose.connect(DBCONNECTION)
 .then(() => {app.listen((PORT), console.log (`Server running on port ${PORT}`))})

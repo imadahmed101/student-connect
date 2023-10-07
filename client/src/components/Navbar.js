@@ -36,9 +36,9 @@ const Navbar = () => {
       return (
         <React.Fragment>
           <div className='flex-1 flex md:justify-end my-auto'>
-            <Link to={'/'} className='mr-2'>Home</Link>
-            <Link to={'/login'} className='mr-2'>Login</Link>
-            <Link to={'/register'} className='mr-2'>Register</Link>
+            <Link to={'/'} className='mr-2 text-2xl'>Home</Link>
+            <Link to={'/login'} className='mr-2 text-2xl'>Login</Link>
+            <Link to={'/register'} className='mr-2 text-2xl'>Register</Link>
           </div>
         </React.Fragment>
       )
