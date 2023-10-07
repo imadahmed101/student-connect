@@ -23,18 +23,18 @@ app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
 })
 
-mongoose.connect(DBCONNECTION)
-.then(() => {app.listen((PORT), console.log (`Server running on port ${PORT}`))})
-.catch((error) => console.log(error.message))
+// mongoose.connect(DBCONNECTION)
+// .then(() => {app.listen((PORT), console.log (`Server running on port ${PORT}`))})
+// .catch((error) => console.log(error.message))
 
 // const express = require('express')
 // const app = express()
 // const port = process.env.PORT || 80
 
-// app.get('/', (req, res) => {
-//     res.send('YESSIR')
-// })
+app.get('/', (req, res) => {
+    res.send('YESSIR')
+})
 
-// app.listen(port, () => {
-//     console.log('server running')
-// })
+app.listen(port, () => {
+    console.log('server running')
+})
