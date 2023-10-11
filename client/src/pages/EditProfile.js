@@ -2,10 +2,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { Context } from '../App'
-
-const baseURL = 'http://localhost:5000/landing'
-const editURL = 'http://localhost:5000/editprofile'
-
+import baseURL from '../baseURL'
 
 const EditProfile = () => {
 
@@ -24,7 +21,7 @@ const EditProfile = () => {
             return navigate('/login')
         }
 
-        axios.post(baseURL, { student })
+        axios.post(`${baseURL}/landing`, { student })
             .then((response) => {
                 setStudents(response.data)
             })
@@ -38,7 +35,7 @@ const EditProfile = () => {
     const formSubmit = (e) => {
         e.preventDefault()
 
-        axios.post(editURL, {
+        axios.post(`${baseURL}/editprofile`, {
             student,
             firstName,
             lastName

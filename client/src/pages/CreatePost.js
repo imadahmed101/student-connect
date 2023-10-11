@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
-const baseURL = 'http://localhost:5000/post'
+import baseURL from '../baseURL'
 
 const CreatePost = () => {
 
@@ -19,19 +19,17 @@ const CreatePost = () => {
           return alert('Please fill out all fields.')
         }
     
-        axios.post(baseURL, {
+        axios.post(`${baseURL}/post`, {
           title,
           question,
           creator,
           username
         })
         .then((response) => {
-          // console.log(response)
           alert('New post created')
           navigate('/community')
         })
         .catch((error) => {
-          // console.log(error)
           alert(error.response.data)
         })
       }

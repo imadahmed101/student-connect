@@ -2,9 +2,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { Context } from '../App'
-
-const baseURL = 'http://localhost:5000/landing'
-
+import baseURL from '../baseURL'
 
 const Landing = () => {
 
@@ -21,7 +19,7 @@ const Landing = () => {
       return navigate('/login')
     }
 
-    axios.post(baseURL, { student })
+    axios.post(`${baseURL}/landing`, { student })
       .then((response) => {
         setStudents(response.data)
       })

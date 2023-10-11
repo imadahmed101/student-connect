@@ -2,8 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import {Context} from '../App'
-
-const baseURL = 'https://studentconnect.azurewebsites.net/login'
+import baseURL from '../baseURL'
 
 const Login = () => {
   const [username, setUsername] = useState('')
@@ -29,7 +28,7 @@ const Login = () => {
       return alert ('Please fill in all fields')
     }
 
-    axios.post(baseURL, {
+    axios.post(`${baseURL}/login`, {
       username,
       password
     })
@@ -41,15 +40,9 @@ const Login = () => {
       setUserName(response.data.username)
       alert('Successfully logged in')
       navigate('/landing')
-
-      // console.log(response.data)
-
-
     })
     .catch((error) => {
-      // console.log(error)
       alert(error.response.data)
-
     })
   }
 

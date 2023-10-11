@@ -10,14 +10,10 @@ const postSchema = new mongoose.Schema({
         required: true
     },
     creator: {
-        // type: mongoose.Schema.Types.ObjectId,
-        // ref: 'Student',
         type: String,
         required: true
     },
     username: {
-        // type: mongoose.Schema.Types.ObjectId,
-        // ref: 'Student',
         type: String,
         required: true
     }

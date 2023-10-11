@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-const baseURL = 'http://localhost:5000/post'
+import baseURL from '../baseURL'
 
 const Community = () => {
 
@@ -15,7 +15,7 @@ const Community = () => {
       return navigate('/login')
     }
 
-    axios.get(baseURL)
+    axios.get(`${baseURL}/post`)
       .then((response) => {
         setPosts(response.data)
       })
@@ -30,7 +30,7 @@ const Community = () => {
       return alert('Error, can only delete your own post.')
     }
 
-    axios.delete(baseURL + '/' + postId)
+    axios.delete(`${baseURL}/post/${postId}`)
       .then((response) => {
         alert('Post Deleted')
         window.location.reload()
@@ -70,7 +70,6 @@ const Community = () => {
                   </Link>
                 </td>
                 <td className='p-4 border-[1px] border-gray-500'>{post.question}</td>
-                {/* <td className='p-4 border-[1px] border-gray-500'>{post.creator}</td> */}
                 <td className='p-4 border-[1px] border-gray-500'>{post.username}</td>
                 <td className='p-4 border-[1px] border-gray-500'><button className='text-red-600' onClick={() => { deletePost({postId: post._id, postCreator: post.creator}) }}>Delete</button></td>
               </tr>

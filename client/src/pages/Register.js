@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
-const baseURL = 'http://localhost:5000/register'
+import baseURL from '../baseURL'
+
 
 const Register = () => {
 
@@ -29,27 +30,21 @@ const Register = () => {
       return alert('Please fill out all fields.')
     }
 
-    //implement more validation
-    //username has to be in email format
-    //password has to be specific way
-
     if (password !== retryPassword) {
       return alert('Passwords do not match.')
     }
 
-    axios.post(baseURL, {
+    axios.post(`${baseURL}/register`, {
       firstName,
       lastName,
       username,
       password
     })
     .then((response) => {
-      // console.log(response)
       alert('New user created')
       navigate('/login')
     })
     .catch((error) => {
-      // console.log(error)
       alert(error.response.data)
     })
   }

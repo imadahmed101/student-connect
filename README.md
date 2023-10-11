@@ -2,7 +2,12 @@
 
 Application built as a student resource center to ask questions and get answers.
 
+Live Preview https://studentconnect.azurewebsites.net/
+
+<img src="./client/public/sc.png"/>
+
 ## Technology
+
 - React
 - Node
 - Express
@@ -10,6 +15,7 @@ Application built as a student resource center to ask questions and get answers.
 - Tailwind CSS
 
 ## Functionality
+
 - Register for an account
 - Login to your account
 - Add info to your profile, education and work experience

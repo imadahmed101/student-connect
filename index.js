@@ -1,40 +1,33 @@
 const express = require('express')
-const app = express()
-app.use(express.json())
+const app =  express()
+const path = require('path')
 const env = require('dotenv/config')
+const port = process.env.PORT
+const DBCONNECTION = process.env.DBCONNECTION
+
 const mongoose = require('mongoose')
 const cors = require('cors')
-const path = require('path')
+
+app.use(express.static('client/build'));
+app.use(express.json());
+
+app.use(cors({
+    origin: "https://studentconnect.azurewebsites.net/"
+}))
+
+mongoose.connect(DBCONNECTION, { useNewUrlParser: true });
 
 const studentRoute = require('./routes/student')
 const postRoute = require('./routes/post')
 const commentRoute = require('./routes/comment')
+app.use('/api/', (studentRoute))
+app.use('/api/post', (postRoute))
+app.use('/api/comment', (commentRoute))
 
-const PORT = process.env.PORT || 80
-const DBCONNECTION = process.env.DBCONNECTION
-
-app.use(cors())
-app.use('/', (studentRoute))
-app.use('/post', (postRoute))
-app.use('/comment', (commentRoute))
-
-app.use(express.static("client/build"))
-app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
-})
-
-// mongoose.connect(DBCONNECTION)
-// .then(() => {app.listen((PORT), console.log (`Server running on port ${PORT}`))})
-// .catch((error) => console.log(error.message))
-
-// const express = require('express')
-// const app = express()
-// const port = process.env.PORT || 80
-
-app.get('/', (req, res) => {
-    res.send('YESSIR')
-})
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+});
 
 app.listen(port, () => {
-    console.log('server running')
-})
+    console.log(`Server is running on port: ${ port }`);
+});
