@@ -52,7 +52,7 @@ const Navbar = () => {
 
       <h1 className='text-2xl flex-1 flex my-auto'>
         <Link to={'/'}>
-          StudentConnect
+          Student Connect
         </Link>
       </h1>
 

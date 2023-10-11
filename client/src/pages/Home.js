@@ -49,7 +49,7 @@ const Home = () => {
             <h3 className='text-4xl mb-4 text-center'>How It Works</h3>
 
             <h4 className='text-2xl mb-2'>1. Register</h4>
-            <p className='text-xl text-gray-300 mb-8'>Fill out our registration form for a free account to StudentConnect.</p>
+            <p className='text-xl text-gray-300 mb-8'>Fill out our registration form for a free account to Student Connect.</p>
 
             <h4 className='text-2xl mb-2'>2. Login</h4>
             <p className='text-xl text-gray-300 mb-8'>Once you have registered login with your username(email) and password.</p>

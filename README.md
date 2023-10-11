@@ -1,4 +1,4 @@
-## StudentConnect
+## Student Connect
 
 Application built as a student resource center to ask questions and get answers.
 
